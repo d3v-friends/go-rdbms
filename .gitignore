@@ -1,0 +1,8 @@
+# ide
+.vs
+.vscode
+.fleet
+.idea
+
+# env
+/.env/
