@@ -1,8 +1,8 @@
 package fnGorm
 
 import (
-	fnCases "github.com/d3v-friends/go-snippet/fn/fnCase"
-	"github.com/d3v-friends/go-snippet/typ"
+	fnCases "github.com/d3v-friends/go-tools/fn/fnCase"
+	"github.com/d3v-friends/go-tools/typ"
 	"github.com/gertd/go-pluralize"
 	"gorm.io/gorm"
 	"reflect"

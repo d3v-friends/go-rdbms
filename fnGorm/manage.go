@@ -2,7 +2,7 @@ package fnGorm
 
 import (
 	"errors"
-	"github.com/d3v-friends/go-snippet/typ"
+	"github.com/d3v-friends/go-tools/typ"
 	"time"
 )
 
