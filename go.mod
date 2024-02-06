@@ -5,8 +5,8 @@ go 1.21.6
 require (
 	github.com/d3v-friends/go-tools v0.0.2
 	github.com/gertd/go-pluralize v0.2.1
-	gorm.io/driver/mysql v1.5.2
-	gorm.io/gorm v1.25.5
+	gorm.io/driver/mysql v1.5.3
+	gorm.io/gorm v1.25.7-0.20240204074919-46816ad31dde
 )
 
 require (
