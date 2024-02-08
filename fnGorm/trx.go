@@ -5,11 +5,22 @@ import (
 	"gorm.io/gorm"
 )
 
-type FnTrx func(context.Context, *gorm.DB) error
+type FnTrxValue[T any] func(sctx context.Context, tx *gorm.DB) (res T, err error)
 
-func Trx(ctx context.Context, fn FnTrx) error {
+func Transaction[T any](ctx context.Context, fn FnTrxValue[T]) (res T, err error) {
 	var db = GetDBP(ctx)
-	return db.Transaction(func(tx *gorm.DB) error {
-		return fn(ctx, tx)
+	var tx = db.Session(&gorm.Session{
+		NewDB: true,
 	})
+	tx.Begin()
+
+	defer func() {
+		if err != nil {
+			tx.Rollback()
+		}
+		tx.Commit()
+	}()
+
+	res, err = fn(ctx, tx)
+	return
 }
